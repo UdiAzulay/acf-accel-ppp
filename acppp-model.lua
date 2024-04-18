@@ -5,6 +5,8 @@ local processname = "accel-pppd"
 local configfile = "/etc/accel-ppp.conf"
 local chapfile = "/etc/ppp/chap-secrets"
 local sessionscolumns = "sid,ifname,username,calling-sid,ip,type,comp,state,uptime,rx-bytes,tx-bytes"
+local ipupfile = "/etc/ppp/ip-up"
+local ipdownfile = "/etc/ppp/ip-down"
 
 function mymodule.extractlinrs(data)
 	local lines = {}
@@ -62,6 +64,21 @@ function mymodule.update_config(self, filedetails)
 	return retval
 end
 
+function mymodule.read_events()
+	local value = {}
+	value.ipup = modelfunctions.getfiledetails(ipupfile)
+	value.ipdown = modelfunctions.getfiledetails(ipdownfile)
+	return { type = "group", label = "files", value = value }
+end
+
+function mymodule.update_events(self, filedetails)
+	local value = {}
+	value.ipup = modelfunctions.setfiledetails(self, filedetails.value.ipup, {ipupfile})
+	posix.chmod(ipupfile, "rw-------")
+	value.ipdown = modelfunctions.setfiledetails(self, filedetails.value.ipdown, {ipdownfile})
+	posix.chmod(ipdownfile, "rw-------")
+	return { type = "group", label = "files", value = value }
+end
 
 function mymodule.read_chap()
 	return modelfunctions.getfiledetails(chapfile)

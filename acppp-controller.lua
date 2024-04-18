@@ -30,4 +30,8 @@ function mymodule.editchap(self)
 	return self.handle_form(self, self.model.read_chap, self.model.update_chap, self.clientdata, "Save", "Edit Users", "Configuration Set")
 end
 
+function mymodule.editevents(self)
+	return self.handle_form(self, self.model.read_events, self.model.update_events, self.clientdata, "Save", "Edit Config", "Configuration Set")
+end
+
 return mymodule

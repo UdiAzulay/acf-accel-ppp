@@ -2,5 +2,6 @@
 Networking		Accel-PPP			Status		statusinfo
 Networking		Accel-PPP			Peers		peers
 Networking		Accel-PPP			Users		editchap
+Networking		Accel-PPP			Events		editevents
 Networking		Accel-PPP			Expert		editconf
 
