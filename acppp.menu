@@ -1,0 +1,6 @@
+#CAT  			GROUP/DESC			TAB			ACTION
+Networking		Accel-PPP			Status		statusinfo
+Networking		Accel-PPP			Peers		peers
+Networking		Accel-PPP			Users		editchap
+Networking		Accel-PPP			Expert		editconf
+

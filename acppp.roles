@@ -1,0 +1,2 @@
+ADMIN=acppp:status,acppp:statusinfo,acppp:peers,acppp:disconnect,acppp:editchap,acppp:editconf,acppp:startstop
+USER=acppp:status,acppp:statusinfo,acppp:peers,acppp:disconnect
