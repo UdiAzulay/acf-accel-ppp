@@ -1,0 +1,8 @@
+web gui for alpine ACF for accel-ppp
+
+install
+________________
+clone repo
+#copy acppp* files to the target dir (usualy at /use/share/acf/app/accel-ppp)
+mkdir /use/share/acf/app/accel-ppp
+cp ./acppp* /use/share/acf/app/accel-ppp/
